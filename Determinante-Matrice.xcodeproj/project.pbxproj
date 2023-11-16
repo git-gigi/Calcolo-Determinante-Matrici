@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B5517C52B064FF500BDBE39 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B5517C42B064FF500BDBE39 /* main.c */; };
+		1B5517CD2B065D0F00BDBE39 /* matFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 1B5517CC2B065D0F00BDBE39 /* matFunctions.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		1B5517C12B064FF500BDBE39 /* Determinante-Matrice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Determinante-Matrice"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5517C42B064FF500BDBE39 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1B5517CB2B065D0F00BDBE39 /* matFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matFunctions.h; sourceTree = "<group>"; };
+		1B5517CC2B065D0F00BDBE39 /* matFunctions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = matFunctions.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				1B5517C42B064FF500BDBE39 /* main.c */,
+				1B5517CB2B065D0F00BDBE39 /* matFunctions.h */,
+				1B5517CC2B065D0F00BDBE39 /* matFunctions.c */,
 			);
 			path = "Determinante-Matrice";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5517CD2B065D0F00BDBE39 /* matFunctions.c in Sources */,
 				1B5517C52B064FF500BDBE39 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
