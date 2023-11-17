@@ -3,4 +3,85 @@
    uuid = "56E42D67-8B67-455F-B425-AD20A7B51B1D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A3FF1C1-3373-42D2-9959-76EB45992B5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Studio-Matrici/matFunctions.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "mat4x4(, dim)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "5A3FF1C1-3373-42D2-9959-76EB45992B5E - acad069a8c15c588"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mat4x4"
+                  moduleName = "Studio-Matrici"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gigi/Universita%CC%80/Git/Studio-Matrici/Studio-Matrici/Studio-Matrici/matFunctions.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "5A3FF1C1-3373-42D2-9959-76EB45992B5E - acad069a8c15c588"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mat4x4"
+                  moduleName = "Studio-Matrici"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gigi/Universita%CC%80/Git/Studio-Matrici/Studio-Matrici/Studio-Matrici/matFunctions.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "5A3FF1C1-3373-42D2-9959-76EB45992B5E - acad069a8c15c588"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mat4x4"
+                  moduleName = "Studio-Matrici"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Gigi/Universita%CC%80/Git/Studio-Matrici/Studio-Matrici/Studio-Matrici/matFunctions.c"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3DEDD7C-1B31-44CB-B55F-4261A70A08CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Studio-Matrici/matFunctions.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "mat3x3(, dim)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

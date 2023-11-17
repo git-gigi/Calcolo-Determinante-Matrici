@@ -44,7 +44,8 @@ int mat3x3 (int v[][MAXDIM], int dim)
 
 int mat4x4 (int v[][MAXDIM], int dim)
 {
-    int i = 0, j, determinante = 0, detMinore = 0;
+    int i = 0, j, k = 0, s = 0, determinante = 0, detMinore = 0;
+    int N[MAXDIM][MAXDIM] = {0};
     
     //Calcolo del Determinante con Formula di Laplace
     for (j = 0; j < dim; j++)
@@ -52,74 +53,63 @@ int mat4x4 (int v[][MAXDIM], int dim)
         i = 0; //Scelgo sempre prima riga
         if (j == 0)//Cancello prima riga e prima colonna
         {
-            /*
-             
+            //Calcolo il Minore Complementare
              for (k = 1; k < dim; k++)
              {
                 for (s = 1; s < dim; s++)
                 {
-                    N[k][s] = v[k][s];
+                    N[k-1][s-1] = v[k][s];
                 }
              }
-             detMinore = mat3x3 (N, dim - 1);
-             
-             */
-            detMinore = (v[1][1]*v[2][2]*v[3][3]) + (v[1][2]*v[2][3]*v[3][1]) + (v[1][3]*v[2][1]*v[3][2]) + (-(v[1][3]*v[2][2]*v[3][1])) + (-(v[1][1]*v[2][3]*v[3][2])) + (-(v[1][2]*v[2][1]*v[3][3]));
+            detMinore = mat3x3 (N, dim - 1);
+
         }
         else if (j == 1)//Cancello prima riga e seconda colonna
         {
-            
-            /*
-             
-             for (k = 0; k < dim; k++)
+            //Calcolo il Minore Complementare
+             for (k = 1; k < dim; k++)
              {
-                for (s = 0; s < dim, s++)
+                for (s = 0; s < dim; s++)
                 {
-                    if (s != 1)
-                    {
-                        N[k][s] = v[k][s];
-                    }
+                    if (s < 1)
+                        N[k-1][s] = v[k][s];
+                    else if (s > 1)
+                        N[k-1][s-1] = v[k][s];
                 }
              }
              detMinore = mat3x3 (N, dim - 1);
-             
-             */
-            detMinore = (v[1][0]*v[2][2]*v[3][3]) + (v[1][2]*v[2][3]*v[3][0]) + (v[1][3]*v[2][0]*v[3][2]) + (-(v[1][3]*v[2][2]*v[3][0])) + (-(v[1][0]*v[2][3]*v[3][2])) + (-(v[1][2]*v[2][0]*v[3][3]));
         }
         else if (j == 2)//Cancello prima riga e terza colonna
         {
-            
-            /*
-             for (k = 0; k < dim; k++)
+            //Calcolo il Minore Complementare
+             for (k = 1; k < dim; k++)
              {
-                for (s = 0; s < dim, s++)
+                 for (s = 0; s < dim; s++)
                 {
-                    if (s != 2)
-                    {
-                        N[k][s] = v[k][s];
-                    }
+                    if (s < 2)
+                        N[k-1][s] = v[k][s];
+                    else if (s > 2)
+                        N[k-1][s-1] = v[k][s];
                 }
              }
              detMinore = mat3x3 (N, dim - 1);
-             */
-            detMinore = (v[1][0]*v[2][1]*v[3][3]) + (v[1][1]*v[2][3]*v[3][0]) + (v[1][3]*v[2][0]*v[3][1]) + (-(v[1][3]*v[2][1]*v[3][0])) + (-(v[1][0]*v[2][3]*v[3][1])) + (-(v[1][1]*v[2][0]*v[3][3]));
+
+
         }
         else if (j == 3)//Cancello prima riga e quarta colonna
         {
-            /* 
-             for (k = 0; k < dim; k++)
+            //Calcolo il Minore Complementare
+             for (k = 1; k < dim; k++)
              {
-                for (s = 0; s < dim, s++)
+                 for (s = 0; s < dim; s++)
                 {
-                    if (s != 3)
-                    {
-                        N[k][s] = v[k][s];
-                    }
+                    if (s < 3)
+                        N[k-1][s] = v[k][s];
+                    else if (s > 3)
+                        N[k-1][s-1] = v[k][s];
                 }
              }
              detMinore = mat3x3 (N, dim - 1);
-             */
-            detMinore = (v[1][0]*v[2][1]*v[3][2]) + (v[1][1]*v[2][2]*v[3][0]) + (v[1][2]*v[2][0]*v[3][1]) + (-(v[1][2]*v[2][1]*v[3][0])) + (-(v[1][0]*v[2][2]*v[3][1])) + (-(v[1][1]*v[2][0]*v[3][2]));
         }
         determinante = determinante + (pow(-1, i + j))*v[i][j]*detMinore;
     }
