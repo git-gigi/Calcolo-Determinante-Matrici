@@ -17,18 +17,27 @@ int mat2x2 (int v[][MAXDIM], int dim)
 
 int mat3x3 (int v[][MAXDIM], int dim)
 {
-    int a1, a2, a3, a4, a5, a6;
-    int determinante;
+    int determinante = 0, i, j;
+    int matCompleta[MAXDIM][5];
     
-    //Addendi per calcolare determinante
-    a1 = v[0][0]*v[1][1]*v[2][2];
-    a2 = v[0][1]*v[1][2]*v[2][0];
-    a3 = v[0][2]*v[1][0]*v[2][1];
-    a4 = v[0][2]*v[1][1]*v[2][0];
-    a5 = v[0][0]*v[1][2]*v[2][1];
-    a6 = v[0][1]*v[1][0]*v[2][2];
+    //Calcolo Matrice Completa
+    for (i = 0; i < dim; i++) {
+        for (j = 0; j < 2*dim - 1; j++) {
+            if (j < dim)
+                matCompleta[i][j] = v[i][j];
+            else if (j >= dim)
+                matCompleta[i][j] = v[i][j-dim];
+        }
+    }
     
-    determinante = a1 + a2 + a3 + (-a4) + (-a5) + (-a6);
+    // Calcolo Determinante
+    i = 0;
+    for (j = 0; j < 2*dim -1; j++) {
+        if (j < dim)
+            determinante = determinante + (matCompleta[i][j]*matCompleta[i+1][j+1]*matCompleta[i+2][j+2]);
+        if (j >= dim - 1)
+            determinante = determinante - (matCompleta[i][j]*matCompleta[i+1][j-1]*matCompleta[i+2][j-2]);
+    }
     
     return determinante;
 }
@@ -43,18 +52,73 @@ int mat4x4 (int v[][MAXDIM], int dim)
         i = 0; //Scelgo sempre prima riga
         if (j == 0)//Cancello prima riga e prima colonna
         {
+            /*
+             
+             for (k = 1; k < dim; k++)
+             {
+                for (s = 1; s < dim; s++)
+                {
+                    N[k][s] = v[k][s];
+                }
+             }
+             detMinore = mat3x3 (N, dim - 1);
+             
+             */
             detMinore = (v[1][1]*v[2][2]*v[3][3]) + (v[1][2]*v[2][3]*v[3][1]) + (v[1][3]*v[2][1]*v[3][2]) + (-(v[1][3]*v[2][2]*v[3][1])) + (-(v[1][1]*v[2][3]*v[3][2])) + (-(v[1][2]*v[2][1]*v[3][3]));
         }
         else if (j == 1)//Cancello prima riga e seconda colonna
         {
+            
+            /*
+             
+             for (k = 0; k < dim; k++)
+             {
+                for (s = 0; s < dim, s++)
+                {
+                    if (s != 1)
+                    {
+                        N[k][s] = v[k][s];
+                    }
+                }
+             }
+             detMinore = mat3x3 (N, dim - 1);
+             
+             */
             detMinore = (v[1][0]*v[2][2]*v[3][3]) + (v[1][2]*v[2][3]*v[3][0]) + (v[1][3]*v[2][0]*v[3][2]) + (-(v[1][3]*v[2][2]*v[3][0])) + (-(v[1][0]*v[2][3]*v[3][2])) + (-(v[1][2]*v[2][0]*v[3][3]));
         }
         else if (j == 2)//Cancello prima riga e terza colonna
         {
+            
+            /*
+             for (k = 0; k < dim; k++)
+             {
+                for (s = 0; s < dim, s++)
+                {
+                    if (s != 2)
+                    {
+                        N[k][s] = v[k][s];
+                    }
+                }
+             }
+             detMinore = mat3x3 (N, dim - 1);
+             */
             detMinore = (v[1][0]*v[2][1]*v[3][3]) + (v[1][1]*v[2][3]*v[3][0]) + (v[1][3]*v[2][0]*v[3][1]) + (-(v[1][3]*v[2][1]*v[3][0])) + (-(v[1][0]*v[2][3]*v[3][1])) + (-(v[1][1]*v[2][0]*v[3][3]));
         }
         else if (j == 3)//Cancello prima riga e quarta colonna
         {
+            /* 
+             for (k = 0; k < dim; k++)
+             {
+                for (s = 0; s < dim, s++)
+                {
+                    if (s != 3)
+                    {
+                        N[k][s] = v[k][s];
+                    }
+                }
+             }
+             detMinore = mat3x3 (N, dim - 1);
+             */
             detMinore = (v[1][0]*v[2][1]*v[3][2]) + (v[1][1]*v[2][2]*v[3][0]) + (v[1][2]*v[2][0]*v[3][1]) + (-(v[1][2]*v[2][1]*v[3][0])) + (-(v[1][0]*v[2][2]*v[3][1])) + (-(v[1][1]*v[2][0]*v[3][2]));
         }
         determinante = determinante + (pow(-1, i + j))*v[i][j]*detMinore;
