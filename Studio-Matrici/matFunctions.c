@@ -143,3 +143,207 @@ void inversa2x2 (int v[][MAXDIM], int dim, double matInversaDouble[][MAXDIM])
     return;
 }
 
+void trasposta (int v[][MAXDIM], int dim, int matTrasposta[][MAXDIM])
+{
+    int i, j;
+    for (i = 0; i < dim; i++) {
+        for (j = 0; j < dim; j++) {
+            matTrasposta[j][i] = v[i][j];
+        }
+    }
+    return;
+}
+
+void inversa3x3 (int v[][MAXDIM], int dim, double matInversaDouble[][MAXDIM])
+{
+    int i, j, k, s;
+    int A; //Cofattore
+    int detMinore = 0;
+    int N[MAXDIM][MAXDIM] = {0}; //Minore complementare
+    int matCofattori[MAXDIM][MAXDIM]; //Matrice dei Cofattori
+    int matTraspCofattori[MAXDIM][MAXDIM]; //Matrice Trasposta dei Cofatto
+    
+    
+    for (i = 0; i < dim; i++) 
+    {
+        for (j = 0; j < dim; j++)
+        {
+            if (i == 0) 
+            {
+                if (j == 0)//Cancello riga prima e prima colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 1; k < dim; k++)
+                    {
+                        for (s = 1; s < dim; s++)
+                        {
+                            N[k-1][s-1] = v[k][s];
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                    
+                }
+                else if (j == 1)//Cancello prima riga e seconda colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 1; k < dim; k++)
+                    {
+                        for (s = 0; s < dim; s++)
+                        {
+                            if (s < 1)
+                                N[k-1][s] = v[k][s];
+                            else if (s > 1)
+                                N[k-1][s-1] = v[k][s];
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                }
+                else if (j == 2)//Cancello prima riga e terza colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 1; k < dim; k++)
+                    {
+                        for (s = 0; s < dim; s++)
+                        {
+                            if (s < 2)
+                                N[k-1][s] = v[k][s];
+                        }
+                    }
+                    detMinore = mat2x2 (N, dim - 1);
+                }
+            }
+            else if (i == 1)
+            {
+                if (j == 0)//Cancello seconda riga e prima colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 1) {
+                            for (s = 1; s < dim; s++){
+                                N[k][s-1] = v[k][s];
+                            }
+                        }
+                        else if (k > 1)
+                        {
+                            for (s = 1; s < dim; s++){
+                                N[k-1][s-1] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                }
+                else if (j == 1)//Cancello seconda riga e seconda colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 1) {
+                            for (s = 0; s < dim; s++){
+                                if (s < 1)
+                                    N[k][s] = v[k][s];
+                                else if (s > 1)
+                                    N[k][s-1] = v[k][s];
+                            }
+                        }
+                        else if (k > 1)
+                        {
+                            for (s = 0; s < dim; s++){
+                                if (s < 1)
+                                    N[k-1][s] = v[k][s];
+                                else if (s > 1)
+                                    N[k-1][s-1] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                }
+                else if (j == 2)//Cancello seconda riga e terza colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 1) {
+                            for (s = 0; s < dim; s++){
+                                if (s < 2)
+                                    N[k][s] = v[k][s];
+                            }
+                        }
+                        else if (k > 1)
+                        {
+                            for (s = 0; s < dim; s++){
+                                if (s < 2)
+                                    N[k-1][s] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2 (N, dim - 1);
+                }
+            }
+            else if (i == 2)
+            {
+                if (j == 0)//Cancello terza riga e prima colonna
+                {
+                    //Calcolo il Minore Complementare
+                    
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 2) {
+                            for (s = 1; s < dim; s++)
+                            {
+                                N[k][s-1] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                    
+                }
+                else if (j == 1)//Cancello terza riga e seconda colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 2) {
+                            for (s = 0; s < dim; s++)
+                            {
+                                if (s < 1)
+                                    N[k][s] = v[k][s];
+                                else if (s > 1)
+                                    N[k][s-1] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2(N, dim - 1);
+                }
+                else if (j == 2)//Cancello terza riga e terza colonna
+                {
+                    //Calcolo il Minore Complementare
+                    for (k = 0; k < dim; k++)
+                    {
+                        if (k < 2) {
+                            for (s = 0; s < dim; s++)
+                            {
+                                if (s < 2)
+                                    N[k][s] = v[k][s];
+                            }
+                        }
+                    }
+                    detMinore = mat2x2 (N, dim - 1);
+                }
+            }
+            A = (pow(-1, (i+1) + (j+1)))*detMinore;
+            matCofattori[i][j] = A;
+        }
+    }
+    
+    trasposta(matCofattori, dim, matTraspCofattori);
+    
+    for (i = 0; i < dim; i++)
+    {
+        for (j = 0; j < dim ; j++) 
+        {
+            matInversaDouble[i][j] = (double)matTraspCofattori[i][j]/(double)(mat3x3(v, dim));
+        }
+    }
+        
+}

@@ -47,6 +47,33 @@ int main (void)
             scanf("%d %d %d", &v[i][0], &v[i][1], &v[i][2]);
         }
         printf("Il determinante della matrice è: %d\n", mat3x3(v, dimMat)); //Stampa del determinante della Matrice
+        
+        //Calcolo Matrice Trasposta
+        int matTrasposta[MAXDIM][MAXDIM];
+        
+        printf("\nLa Matric trasposta è: \n");
+        trasposta(v, dimMat, matTrasposta);
+        
+        for (i = 0; i < dimMat; i++) {
+            for (j = 0; j < dimMat; j++) {
+                printf("%5d ", matTrasposta[i][j]);
+            }
+            printf("\n");
+        }
+        //Calcolo Matrice Inversa
+        if (mat3x3(v, dimMat) != 0)
+        {
+            double matInversa[MAXDIM][MAXDIM];
+            
+            printf("\nLa Matrice Inversa è: \n");
+            inversa3x3(v, dimMat, matInversa);
+            for (i = 0; i < dimMat; i++) {
+                for (j = 0; j < dimMat; j++) {
+                    printf("%5.2lf ", matInversa[i][j]);
+                }
+                printf("\n");
+            }
+        }
     }
 //Caso Matrice 4x4
     else if (dimMat == 4)
