@@ -347,3 +347,39 @@ void inversa3x3 (int v[][MAXDIM], int dim, double matInversaDouble[][MAXDIM])
     }
         
 }
+
+void autovalori (int v[][MAXDIM], int dim, double* lamda1, double* lamda2)
+{
+    int a, b, c, d; //Valori della matrice
+    int A, B, C; // Coefficienti della forma AX^2 + BX + C
+    
+    a = v[0][0];
+    b = v[0][1];
+    c = v[1][0];
+    d = v[1][1];
+    
+    A = 1;
+    B = (-(a+d));
+    C = ((a*d) - (b*c));
+    
+    *lamda1 = (double)(B + sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
+    *lamda2 = (double)(B - sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
+
+    
+/*      
+        Schema Risolutivo per trovare gli autovalori
+        (a-lamda) * (d - lambda) - bc
+            
+        ad - a*lamda - d*lamda + lamda^2 - bc = 0;
+ 
+        lamda^2 - lamda(a+d) +ad -bc = 0
+ 
+        A = 1;
+        B = -(a+d)
+        C = ad - bc
+ 
+        lamda1 = (B + sqrt(B^2 - 4*A*C))/2A
+        lamda2 = (B - sqrt(B^2 - 4*A*C))/2A
+*/
+}
+

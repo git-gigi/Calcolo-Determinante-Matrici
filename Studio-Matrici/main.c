@@ -37,6 +37,19 @@ int main (void)
                 printf("\n");
             }
         }
+        
+        if (mat2x2(v, dimMat) == 0) {
+            double autoval1, autoval2;
+            
+            autovalori(v, dimMat, &autoval1, &autoval2);
+            if (autoval1 != 0 && autoval2 != 0) {
+                printf("Gli autovalori sono: %lf e %lf", autoval1, autoval2);
+            }
+            else if (autoval1 != 0)
+                printf("L'unico autovalore è: %lf", autoval1);
+            else
+                printf("L'unico autovalore è: %lf", autoval2); 
+        }
     }
 //Caso Matrice 3x3
     else if (dimMat == 3)
