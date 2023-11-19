@@ -43,12 +43,12 @@ int main (void)
             
             autovalori(v, dimMat, &autoval1, &autoval2);
             if (autoval1 != 0 && autoval2 != 0) {
-                printf("Gli autovalori sono: %lf e %lf", autoval1, autoval2);
+                printf("Gli autovalori sono: %lf e %lf\n", autoval1, autoval2);
             }
             else if (autoval1 != 0)
-                printf("L'unico autovalore è: %lf", autoval1);
+                printf("L'unico autovalore è: %lf\n", autoval1);
             else
-                printf("L'unico autovalore è: %lf", autoval2); 
+                printf("L'unico autovalore è: %lf\n", autoval2); 
         }
     }
 //Caso Matrice 3x3

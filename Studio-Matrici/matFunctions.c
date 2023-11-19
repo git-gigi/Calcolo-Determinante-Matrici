@@ -362,13 +362,13 @@ void autovalori (int v[][MAXDIM], int dim, double* lamda1, double* lamda2)
     B = (-(a+d));
     C = ((a*d) - (b*c));
     
-    *lamda1 = (double)(B + sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
-    *lamda2 = (double)(B - sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
+    *lamda1 = (double)(-B + sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
+    *lamda2 = (double)(-B - sqrt(pow(B, 2) - (4*A*C)))/(double)2*A;
 
     
 /*      
         Schema Risolutivo per trovare gli autovalori
-        (a-lamda) * (d - lambda) - bc
+        (a-lamda) * (d - lambda) - bc --> Determinante della matrice caratteristica 2x2
             
         ad - a*lamda - d*lamda + lamda^2 - bc = 0;
  
